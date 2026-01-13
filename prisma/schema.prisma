@@ -8,7 +8,7 @@ generator client {
 // 로컬 개발: SQLite 사용 (DATABASE_URL이 file:로 시작하면 SQLite)
 // 프로덕션: DATABASE_URL이 postgresql://로 시작하면 PostgreSQL 자동 감지
 datasource db {
-  provider = "sqlite"  // DATABASE_URL 형식에 따라 자동으로 PostgreSQL로 전환됨
+  provider = "postgresql"  // DATABASE_URL 형식에 따라 자동으로 PostgreSQL로 전환됨
   url      = env("DATABASE_URL")
 }
 
