@@ -1,0 +1,4145 @@
+{
+  "gradeLevels": [
+    "초4",
+    "초5",
+    "초6",
+    "중1",
+    "중2",
+    "중3",
+    "고1",
+    "고2",
+    "고3"
+  ],
+  "availableMetrics": {
+    "male": {
+      "초4": [
+        "shuttleRun",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "초5": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "초6": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "중1": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "pushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "중2": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "pushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "중3": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "pushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "고1": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "pushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "고2": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "pushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "고3": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "pushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ]
+    },
+    "female": {
+      "초4": [
+        "shuttleRun",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "초5": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "초6": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "중1": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "kneePushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "중2": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "kneePushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "중3": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "kneePushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "고1": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "kneePushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "고2": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "kneePushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ],
+      "고3": [
+        "shuttleRun",
+        "runWalk",
+        "stepTest",
+        "sitAndReach",
+        "flexScore",
+        "kneePushUp",
+        "sitUp",
+        "grip",
+        "sprint50m",
+        "jump",
+        "bmi"
+      ]
+    }
+  },
+  "criteria": {
+    "male": {
+      "초4": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 96.0
+          },
+          {
+            "grade": 2,
+            "min": 69.0
+          },
+          {
+            "grade": 3,
+            "min": 45.0
+          },
+          {
+            "grade": 4,
+            "min": 26.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 80.0
+          },
+          {
+            "grade": 2,
+            "min": 40.0
+          },
+          {
+            "grade": 3,
+            "min": 22.0
+          },
+          {
+            "grade": 4,
+            "min": 7.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 31.0
+          },
+          {
+            "grade": 2,
+            "min": 18.5
+          },
+          {
+            "grade": 3,
+            "min": 15.0
+          },
+          {
+            "grade": 4,
+            "min": 11.5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.7
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 13.2
+          },
+          {
+            "grade": 5,
+            "max": 16.01
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 170.1
+          },
+          {
+            "grade": 2,
+            "min": 149.1
+          },
+          {
+            "grade": 3,
+            "min": 130.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "초5": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 100.0
+          },
+          {
+            "grade": 2,
+            "min": 73.0
+          },
+          {
+            "grade": 3,
+            "min": 50.0
+          },
+          {
+            "grade": 4,
+            "min": 29.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 281.0
+          },
+          {
+            "grade": 2,
+            "max": 324.0
+          },
+          {
+            "grade": 3,
+            "max": 409.0
+          },
+          {
+            "grade": 4,
+            "max": 479.0
+          },
+          {
+            "grade": 5,
+            "max": 640.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 8.0
+          },
+          {
+            "grade": 2,
+            "min": 5.0
+          },
+          {
+            "grade": 3,
+            "min": 1.0
+          },
+          {
+            "grade": 4,
+            "min": -4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 80.0
+          },
+          {
+            "grade": 2,
+            "min": 40.0
+          },
+          {
+            "grade": 3,
+            "min": 22.0
+          },
+          {
+            "grade": 4,
+            "min": 10.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 31.0
+          },
+          {
+            "grade": 2,
+            "min": 23.0
+          },
+          {
+            "grade": 3,
+            "min": 17.0
+          },
+          {
+            "grade": 4,
+            "min": 12.5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.5
+          },
+          {
+            "grade": 2,
+            "max": 9.4
+          },
+          {
+            "grade": 3,
+            "max": 10.2
+          },
+          {
+            "grade": 4,
+            "max": 13.2
+          },
+          {
+            "grade": 5,
+            "max": 15.56
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 180.1
+          },
+          {
+            "grade": 2,
+            "min": 159.1
+          },
+          {
+            "grade": 3,
+            "min": 141.1
+          },
+          {
+            "grade": 4,
+            "min": 111.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "초6": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 104.0
+          },
+          {
+            "grade": 2,
+            "min": 78.0
+          },
+          {
+            "grade": 3,
+            "min": 54.0
+          },
+          {
+            "grade": 4,
+            "min": 32.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 250.0
+          },
+          {
+            "grade": 2,
+            "max": 314.0
+          },
+          {
+            "grade": 3,
+            "max": 379.0
+          },
+          {
+            "grade": 4,
+            "max": 449.0
+          },
+          {
+            "grade": 5,
+            "max": 587.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 8.0
+          },
+          {
+            "grade": 2,
+            "min": 5.0
+          },
+          {
+            "grade": 3,
+            "min": 1.0
+          },
+          {
+            "grade": 4,
+            "min": -4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 80.0
+          },
+          {
+            "grade": 2,
+            "min": 40.0
+          },
+          {
+            "grade": 3,
+            "min": 22.0
+          },
+          {
+            "grade": 4,
+            "min": 10.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 35.0
+          },
+          {
+            "grade": 2,
+            "min": 26.5
+          },
+          {
+            "grade": 3,
+            "min": 19.0
+          },
+          {
+            "grade": 4,
+            "min": 15.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.1
+          },
+          {
+            "grade": 2,
+            "max": 9.1
+          },
+          {
+            "grade": 3,
+            "max": 10.0
+          },
+          {
+            "grade": 4,
+            "max": 12.5
+          },
+          {
+            "grade": 5,
+            "max": 15.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 200.1
+          },
+          {
+            "grade": 2,
+            "min": 167.1
+          },
+          {
+            "grade": 3,
+            "min": 148.1
+          },
+          {
+            "grade": 4,
+            "min": 122.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "중1": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 64.0
+          },
+          {
+            "grade": 2,
+            "min": 50.0
+          },
+          {
+            "grade": 3,
+            "min": 36.0
+          },
+          {
+            "grade": 4,
+            "min": 20.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 425.0
+          },
+          {
+            "grade": 2,
+            "max": 502.0
+          },
+          {
+            "grade": 3,
+            "max": 599.0
+          },
+          {
+            "grade": 4,
+            "max": 699.0
+          },
+          {
+            "grade": 5,
+            "max": 791.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 10.0
+          },
+          {
+            "grade": 2,
+            "min": 6.0
+          },
+          {
+            "grade": 3,
+            "min": 2.0
+          },
+          {
+            "grade": 4,
+            "min": -4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "pushUp": [
+          {
+            "grade": 1,
+            "min": 34.0
+          },
+          {
+            "grade": 2,
+            "min": 25.0
+          },
+          {
+            "grade": 3,
+            "min": 12.0
+          },
+          {
+            "grade": 4,
+            "min": 4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 90.0
+          },
+          {
+            "grade": 2,
+            "min": 55.0
+          },
+          {
+            "grade": 3,
+            "min": 33.0
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 42.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 22.5
+          },
+          {
+            "grade": 4,
+            "min": 16.5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 7.5
+          },
+          {
+            "grade": 2,
+            "max": 8.4
+          },
+          {
+            "grade": 3,
+            "max": 9.3
+          },
+          {
+            "grade": 4,
+            "max": 11.5
+          },
+          {
+            "grade": 5,
+            "max": 12.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 211.1
+          },
+          {
+            "grade": 2,
+            "min": 177.1
+          },
+          {
+            "grade": 3,
+            "min": 159.1
+          },
+          {
+            "grade": 4,
+            "min": 131.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "중2": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 66.0
+          },
+          {
+            "grade": 2,
+            "min": 52.0
+          },
+          {
+            "grade": 3,
+            "min": 38.0
+          },
+          {
+            "grade": 4,
+            "min": 22.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 416.0
+          },
+          {
+            "grade": 2,
+            "max": 487.0
+          },
+          {
+            "grade": 3,
+            "max": 583.0
+          },
+          {
+            "grade": 4,
+            "max": 679.0
+          },
+          {
+            "grade": 5,
+            "max": 774.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 10.0
+          },
+          {
+            "grade": 2,
+            "min": 7.0
+          },
+          {
+            "grade": 3,
+            "min": 2.0
+          },
+          {
+            "grade": 4,
+            "min": -4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "pushUp": [
+          {
+            "grade": 1,
+            "min": 34.0
+          },
+          {
+            "grade": 2,
+            "min": 25.0
+          },
+          {
+            "grade": 3,
+            "min": 12.0
+          },
+          {
+            "grade": 4,
+            "min": 4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 90.0
+          },
+          {
+            "grade": 2,
+            "min": 55.0
+          },
+          {
+            "grade": 3,
+            "min": 33.0
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 44.5
+          },
+          {
+            "grade": 2,
+            "min": 37.0
+          },
+          {
+            "grade": 3,
+            "min": 28.5
+          },
+          {
+            "grade": 4,
+            "min": 22.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 7.3
+          },
+          {
+            "grade": 2,
+            "max": 8.2
+          },
+          {
+            "grade": 3,
+            "max": 9.0
+          },
+          {
+            "grade": 4,
+            "max": 11.5
+          },
+          {
+            "grade": 5,
+            "max": 12.41
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 218.1
+          },
+          {
+            "grade": 2,
+            "min": 187.1
+          },
+          {
+            "grade": 3,
+            "min": 169.1
+          },
+          {
+            "grade": 4,
+            "min": 136.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "중3": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 68.0
+          },
+          {
+            "grade": 2,
+            "min": 54.0
+          },
+          {
+            "grade": 3,
+            "min": 40.0
+          },
+          {
+            "grade": 4,
+            "min": 24.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 407.0
+          },
+          {
+            "grade": 2,
+            "max": 472.0
+          },
+          {
+            "grade": 3,
+            "max": 567.0
+          },
+          {
+            "grade": 4,
+            "max": 659.0
+          },
+          {
+            "grade": 5,
+            "max": 761.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 10.0
+          },
+          {
+            "grade": 2,
+            "min": 7.0
+          },
+          {
+            "grade": 3,
+            "min": 2.6
+          },
+          {
+            "grade": 4,
+            "min": -3.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "pushUp": [
+          {
+            "grade": 1,
+            "min": 34.0
+          },
+          {
+            "grade": 2,
+            "min": 25.0
+          },
+          {
+            "grade": 3,
+            "min": 14.0
+          },
+          {
+            "grade": 4,
+            "min": 4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 90.0
+          },
+          {
+            "grade": 2,
+            "min": 55.0
+          },
+          {
+            "grade": 3,
+            "min": 33.0
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 48.5
+          },
+          {
+            "grade": 2,
+            "min": 40.5
+          },
+          {
+            "grade": 3,
+            "min": 33.0
+          },
+          {
+            "grade": 4,
+            "min": 25.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 7.0
+          },
+          {
+            "grade": 2,
+            "max": 7.8
+          },
+          {
+            "grade": 3,
+            "max": 8.5
+          },
+          {
+            "grade": 4,
+            "max": 11.0
+          },
+          {
+            "grade": 5,
+            "max": 12.38
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 238.1
+          },
+          {
+            "grade": 2,
+            "min": 201.1
+          },
+          {
+            "grade": 3,
+            "min": 180.1
+          },
+          {
+            "grade": 4,
+            "min": 145.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "고1": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 70.0
+          },
+          {
+            "grade": 2,
+            "min": 56.0
+          },
+          {
+            "grade": 3,
+            "min": 42.0
+          },
+          {
+            "grade": 4,
+            "min": 26.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 398.0
+          },
+          {
+            "grade": 2,
+            "max": 457.0
+          },
+          {
+            "grade": 3,
+            "max": 551.0
+          },
+          {
+            "grade": 4,
+            "max": 639.0
+          },
+          {
+            "grade": 5,
+            "max": 755.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 13.0
+          },
+          {
+            "grade": 2,
+            "min": 9.0
+          },
+          {
+            "grade": 3,
+            "min": 4.0
+          },
+          {
+            "grade": 4,
+            "min": -2.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "pushUp": [
+          {
+            "grade": 1,
+            "min": 46.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 16.0
+          },
+          {
+            "grade": 4,
+            "min": 7.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 90.0
+          },
+          {
+            "grade": 2,
+            "min": 60.0
+          },
+          {
+            "grade": 3,
+            "min": 35.0
+          },
+          {
+            "grade": 4,
+            "min": 15.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 61.0
+          },
+          {
+            "grade": 2,
+            "min": 42.5
+          },
+          {
+            "grade": 3,
+            "min": 35.5
+          },
+          {
+            "grade": 4,
+            "min": 29.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 7.0
+          },
+          {
+            "grade": 2,
+            "max": 7.6
+          },
+          {
+            "grade": 3,
+            "max": 8.1
+          },
+          {
+            "grade": 4,
+            "max": 10.0
+          },
+          {
+            "grade": 5,
+            "max": 10.74
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 255.1
+          },
+          {
+            "grade": 2,
+            "min": 216.1
+          },
+          {
+            "grade": 3,
+            "min": 195.1
+          },
+          {
+            "grade": 4,
+            "min": 160.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "고2": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 72.0
+          },
+          {
+            "grade": 2,
+            "min": 58.0
+          },
+          {
+            "grade": 3,
+            "min": 44.0
+          },
+          {
+            "grade": 4,
+            "min": 28.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 389.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 535.0
+          },
+          {
+            "grade": 4,
+            "max": 619.0
+          },
+          {
+            "grade": 5,
+            "max": 721.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 16.0
+          },
+          {
+            "grade": 2,
+            "min": 11.0
+          },
+          {
+            "grade": 3,
+            "min": 5.0
+          },
+          {
+            "grade": 4,
+            "min": 0.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "pushUp": [
+          {
+            "grade": 1,
+            "min": 50.0
+          },
+          {
+            "grade": 2,
+            "min": 42.0
+          },
+          {
+            "grade": 3,
+            "min": 25.0
+          },
+          {
+            "grade": 4,
+            "min": 11.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 90.0
+          },
+          {
+            "grade": 2,
+            "min": 60.0
+          },
+          {
+            "grade": 3,
+            "min": 35.0
+          },
+          {
+            "grade": 4,
+            "min": 17.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 61.0
+          },
+          {
+            "grade": 2,
+            "min": 46.0
+          },
+          {
+            "grade": 3,
+            "min": 39.0
+          },
+          {
+            "grade": 4,
+            "min": 31.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 6.7
+          },
+          {
+            "grade": 2,
+            "max": 7.5
+          },
+          {
+            "grade": 3,
+            "max": 7.9
+          },
+          {
+            "grade": 4,
+            "max": 9.5
+          },
+          {
+            "grade": 5,
+            "max": 9.71
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 258.1
+          },
+          {
+            "grade": 2,
+            "min": 228.1
+          },
+          {
+            "grade": 3,
+            "min": 212.1
+          },
+          {
+            "grade": 4,
+            "min": 177.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "고3": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 74.0
+          },
+          {
+            "grade": 2,
+            "min": 60.0
+          },
+          {
+            "grade": 3,
+            "min": 46.0
+          },
+          {
+            "grade": 4,
+            "min": 30.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 380.0
+          },
+          {
+            "grade": 2,
+            "max": 427.0
+          },
+          {
+            "grade": 3,
+            "max": 519.0
+          },
+          {
+            "grade": 4,
+            "max": 599.0
+          },
+          {
+            "grade": 5,
+            "max": 701.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 16.0
+          },
+          {
+            "grade": 2,
+            "min": 11.0
+          },
+          {
+            "grade": 3,
+            "min": 6.0
+          },
+          {
+            "grade": 4,
+            "min": 0.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "pushUp": [
+          {
+            "grade": 1,
+            "min": 56.0
+          },
+          {
+            "grade": 2,
+            "min": 46.0
+          },
+          {
+            "grade": 3,
+            "min": 30.0
+          },
+          {
+            "grade": 4,
+            "min": 17.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 90.0
+          },
+          {
+            "grade": 2,
+            "min": 60.0
+          },
+          {
+            "grade": 3,
+            "min": 35.0
+          },
+          {
+            "grade": 4,
+            "min": 17.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 63.5
+          },
+          {
+            "grade": 2,
+            "min": 46.0
+          },
+          {
+            "grade": 3,
+            "min": 39.0
+          },
+          {
+            "grade": 4,
+            "min": 31.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 6.7
+          },
+          {
+            "grade": 2,
+            "max": 7.5
+          },
+          {
+            "grade": 3,
+            "max": 7.9
+          },
+          {
+            "grade": 4,
+            "max": 8.7
+          },
+          {
+            "grade": 5,
+            "max": 9.61
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 264.1
+          },
+          {
+            "grade": 2,
+            "min": 243.1
+          },
+          {
+            "grade": 3,
+            "min": 221.1
+          },
+          {
+            "grade": 4,
+            "min": 185.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      }
+    },
+    "female": {
+      "초4": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 77.0
+          },
+          {
+            "grade": 2,
+            "min": 57.0
+          },
+          {
+            "grade": 3,
+            "min": 40.0
+          },
+          {
+            "grade": 4,
+            "min": 21.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 60.0
+          },
+          {
+            "grade": 2,
+            "min": 29.0
+          },
+          {
+            "grade": 3,
+            "min": 18.0
+          },
+          {
+            "grade": 4,
+            "min": 6.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 29.0
+          },
+          {
+            "grade": 2,
+            "min": 18.0
+          },
+          {
+            "grade": 3,
+            "min": 13.5
+          },
+          {
+            "grade": 4,
+            "min": 10.5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 9.4
+          },
+          {
+            "grade": 2,
+            "max": 10.4
+          },
+          {
+            "grade": 3,
+            "max": 11.0
+          },
+          {
+            "grade": 4,
+            "max": 13.3
+          },
+          {
+            "grade": 5,
+            "max": 18.42
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 161.1
+          },
+          {
+            "grade": 2,
+            "min": 135.1
+          },
+          {
+            "grade": 3,
+            "min": 119.1
+          },
+          {
+            "grade": 4,
+            "min": 97.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "초5": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 85.0
+          },
+          {
+            "grade": 2,
+            "min": 63.0
+          },
+          {
+            "grade": 3,
+            "min": 45.0
+          },
+          {
+            "grade": 4,
+            "min": 23.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 299.0
+          },
+          {
+            "grade": 2,
+            "max": 359.0
+          },
+          {
+            "grade": 3,
+            "max": 441.0
+          },
+          {
+            "grade": 4,
+            "max": 501.0
+          },
+          {
+            "grade": 5,
+            "max": 640.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 10.0
+          },
+          {
+            "grade": 2,
+            "min": 7.0
+          },
+          {
+            "grade": 3,
+            "min": 5.0
+          },
+          {
+            "grade": 4,
+            "min": 1.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 60.0
+          },
+          {
+            "grade": 2,
+            "min": 36.0
+          },
+          {
+            "grade": 3,
+            "min": 23.0
+          },
+          {
+            "grade": 4,
+            "min": 7.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 29.0
+          },
+          {
+            "grade": 2,
+            "min": 19.0
+          },
+          {
+            "grade": 3,
+            "min": 15.5
+          },
+          {
+            "grade": 4,
+            "min": 12.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.9
+          },
+          {
+            "grade": 2,
+            "max": 9.9
+          },
+          {
+            "grade": 3,
+            "max": 10.7
+          },
+          {
+            "grade": 4,
+            "max": 13.3
+          },
+          {
+            "grade": 5,
+            "max": 15.91
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 170.1
+          },
+          {
+            "grade": 2,
+            "min": 139.1
+          },
+          {
+            "grade": 3,
+            "min": 123.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "초6": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 93.0
+          },
+          {
+            "grade": 2,
+            "min": 69.0
+          },
+          {
+            "grade": 3,
+            "min": 50.0
+          },
+          {
+            "grade": 4,
+            "min": 25.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 299.0
+          },
+          {
+            "grade": 2,
+            "max": 353.0
+          },
+          {
+            "grade": 3,
+            "max": 429.0
+          },
+          {
+            "grade": 4,
+            "max": 479.0
+          },
+          {
+            "grade": 5,
+            "max": 587.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 14.0
+          },
+          {
+            "grade": 2,
+            "min": 10.0
+          },
+          {
+            "grade": 3,
+            "min": 5.0
+          },
+          {
+            "grade": 4,
+            "min": 2.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 60.0
+          },
+          {
+            "grade": 2,
+            "min": 43.0
+          },
+          {
+            "grade": 3,
+            "min": 23.0
+          },
+          {
+            "grade": 4,
+            "min": 7.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 33.0
+          },
+          {
+            "grade": 2,
+            "min": 22.0
+          },
+          {
+            "grade": 3,
+            "min": 19.0
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.9
+          },
+          {
+            "grade": 2,
+            "max": 9.8
+          },
+          {
+            "grade": 3,
+            "max": 10.7
+          },
+          {
+            "grade": 4,
+            "max": 12.9
+          },
+          {
+            "grade": 5,
+            "max": 15.91
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 175.1
+          },
+          {
+            "grade": 2,
+            "min": 144.1
+          },
+          {
+            "grade": 3,
+            "min": 127.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "중1": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 35.0
+          },
+          {
+            "grade": 2,
+            "min": 25.0
+          },
+          {
+            "grade": 3,
+            "min": 19.0
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 379.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 517.0
+          },
+          {
+            "grade": 4,
+            "max": 608.0
+          },
+          {
+            "grade": 5,
+            "max": 661.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 15.0
+          },
+          {
+            "grade": 2,
+            "min": 11.0
+          },
+          {
+            "grade": 3,
+            "min": 8.0
+          },
+          {
+            "grade": 4,
+            "min": 2.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "kneePushUp": [
+          {
+            "grade": 1,
+            "min": 45.0
+          },
+          {
+            "grade": 2,
+            "min": 24.0
+          },
+          {
+            "grade": 3,
+            "min": 14.0
+          },
+          {
+            "grade": 4,
+            "min": 6.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 58.0
+          },
+          {
+            "grade": 2,
+            "min": 43.0
+          },
+          {
+            "grade": 3,
+            "min": 22.0
+          },
+          {
+            "grade": 4,
+            "min": 7.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 36.0
+          },
+          {
+            "grade": 2,
+            "min": 23.0
+          },
+          {
+            "grade": 3,
+            "min": 19.0
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.8
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 12.2
+          },
+          {
+            "grade": 5,
+            "max": 13.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 175.1
+          },
+          {
+            "grade": 2,
+            "min": 144.1
+          },
+          {
+            "grade": 3,
+            "min": 127.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "중2": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 29.0
+          },
+          {
+            "grade": 3,
+            "min": 21.0
+          },
+          {
+            "grade": 4,
+            "min": 15.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 379.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 517.0
+          },
+          {
+            "grade": 4,
+            "max": 608.0
+          },
+          {
+            "grade": 5,
+            "max": 661.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 15.0
+          },
+          {
+            "grade": 2,
+            "min": 11.0
+          },
+          {
+            "grade": 3,
+            "min": 8.0
+          },
+          {
+            "grade": 4,
+            "min": 2.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "kneePushUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 24.0
+          },
+          {
+            "grade": 3,
+            "min": 14.0
+          },
+          {
+            "grade": 4,
+            "min": 6.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 58.0
+          },
+          {
+            "grade": 2,
+            "min": 39.0
+          },
+          {
+            "grade": 3,
+            "min": 19.0
+          },
+          {
+            "grade": 4,
+            "min": 7.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 36.0
+          },
+          {
+            "grade": 2,
+            "min": 25.5
+          },
+          {
+            "grade": 3,
+            "min": 19.5
+          },
+          {
+            "grade": 4,
+            "min": 14.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.8
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 12.2
+          },
+          {
+            "grade": 5,
+            "max": 13.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 183.1
+          },
+          {
+            "grade": 2,
+            "min": 145.1
+          },
+          {
+            "grade": 3,
+            "min": 127.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "중3": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 45.0
+          },
+          {
+            "grade": 2,
+            "min": 33.0
+          },
+          {
+            "grade": 3,
+            "min": 23.0
+          },
+          {
+            "grade": 4,
+            "min": 16.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 379.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 517.0
+          },
+          {
+            "grade": 4,
+            "max": 608.0
+          },
+          {
+            "grade": 5,
+            "max": 661.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 16.0
+          },
+          {
+            "grade": 2,
+            "min": 11.0
+          },
+          {
+            "grade": 3,
+            "min": 8.0
+          },
+          {
+            "grade": 4,
+            "min": 2.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "kneePushUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 24.0
+          },
+          {
+            "grade": 3,
+            "min": 14.0
+          },
+          {
+            "grade": 4,
+            "min": 6.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 52.0
+          },
+          {
+            "grade": 2,
+            "min": 34.0
+          },
+          {
+            "grade": 3,
+            "min": 17.0
+          },
+          {
+            "grade": 4,
+            "min": 6.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 36.0
+          },
+          {
+            "grade": 2,
+            "min": 27.5
+          },
+          {
+            "grade": 3,
+            "min": 19.5
+          },
+          {
+            "grade": 4,
+            "min": 16.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.8
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 12.2
+          },
+          {
+            "grade": 5,
+            "max": 13.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 183.1
+          },
+          {
+            "grade": 2,
+            "min": 145.1
+          },
+          {
+            "grade": 3,
+            "min": 127.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "고1": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 50.0
+          },
+          {
+            "grade": 2,
+            "min": 37.0
+          },
+          {
+            "grade": 3,
+            "min": 25.0
+          },
+          {
+            "grade": 4,
+            "min": 17.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 379.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 517.0
+          },
+          {
+            "grade": 4,
+            "max": 608.0
+          },
+          {
+            "grade": 5,
+            "max": 661.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 16.0
+          },
+          {
+            "grade": 2,
+            "min": 11.0
+          },
+          {
+            "grade": 3,
+            "min": 8.0
+          },
+          {
+            "grade": 4,
+            "min": 2.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "kneePushUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 24.0
+          },
+          {
+            "grade": 3,
+            "min": 14.0
+          },
+          {
+            "grade": 4,
+            "min": 6.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 13.0
+          },
+          {
+            "grade": 4,
+            "min": 4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 36.0
+          },
+          {
+            "grade": 2,
+            "min": 29.0
+          },
+          {
+            "grade": 3,
+            "min": 23.0
+          },
+          {
+            "grade": 4,
+            "min": 16.5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.8
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 12.2
+          },
+          {
+            "grade": 5,
+            "max": 13.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 186.1
+          },
+          {
+            "grade": 2,
+            "min": 159.1
+          },
+          {
+            "grade": 3,
+            "min": 139.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "고2": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 55.0
+          },
+          {
+            "grade": 2,
+            "min": 41.0
+          },
+          {
+            "grade": 3,
+            "min": 27.0
+          },
+          {
+            "grade": 4,
+            "min": 18.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 379.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 517.0
+          },
+          {
+            "grade": 4,
+            "max": 608.0
+          },
+          {
+            "grade": 5,
+            "max": 661.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 17.0
+          },
+          {
+            "grade": 2,
+            "min": 12.0
+          },
+          {
+            "grade": 3,
+            "min": 9.0
+          },
+          {
+            "grade": 4,
+            "min": 5.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "kneePushUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 18.0
+          },
+          {
+            "grade": 4,
+            "min": 9.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 13.0
+          },
+          {
+            "grade": 4,
+            "min": 4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 37.5
+          },
+          {
+            "grade": 2,
+            "min": 29.5
+          },
+          {
+            "grade": 3,
+            "min": 25.0
+          },
+          {
+            "grade": 4,
+            "min": 18.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.5
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 12.2
+          },
+          {
+            "grade": 5,
+            "max": 13.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 186.1
+          },
+          {
+            "grade": 2,
+            "min": 159.1
+          },
+          {
+            "grade": 3,
+            "min": 139.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      },
+      "고3": {
+        "shuttleRun": [
+          {
+            "grade": 1,
+            "min": 55.0
+          },
+          {
+            "grade": 2,
+            "min": 41.0
+          },
+          {
+            "grade": 3,
+            "min": 27.0
+          },
+          {
+            "grade": 4,
+            "min": 18.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "runWalk": [
+          {
+            "grade": 1,
+            "max": 379.0
+          },
+          {
+            "grade": 2,
+            "max": 442.0
+          },
+          {
+            "grade": 3,
+            "max": 517.0
+          },
+          {
+            "grade": 4,
+            "max": 608.0
+          },
+          {
+            "grade": 5,
+            "max": 661.0
+          }
+        ],
+        "stepTest": [
+          {
+            "grade": 1,
+            "min": 76.0
+          },
+          {
+            "grade": 2,
+            "min": 62.0
+          },
+          {
+            "grade": 3,
+            "min": 52.0
+          },
+          {
+            "grade": 4,
+            "min": 47.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitAndReach": [
+          {
+            "grade": 1,
+            "min": 17.0
+          },
+          {
+            "grade": 2,
+            "min": 12.0
+          },
+          {
+            "grade": 3,
+            "min": 9.0
+          },
+          {
+            "grade": 4,
+            "min": 5.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "flexScore": [
+          {
+            "grade": 1,
+            "min": 8
+          },
+          {
+            "grade": 2,
+            "min": 7
+          },
+          {
+            "grade": 3,
+            "min": 6
+          },
+          {
+            "grade": 4,
+            "min": 5
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "kneePushUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 18.0
+          },
+          {
+            "grade": 4,
+            "min": 9.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sitUp": [
+          {
+            "grade": 1,
+            "min": 40.0
+          },
+          {
+            "grade": 2,
+            "min": 30.0
+          },
+          {
+            "grade": 3,
+            "min": 13.0
+          },
+          {
+            "grade": 4,
+            "min": 4.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "grip": [
+          {
+            "grade": 1,
+            "min": 37.5
+          },
+          {
+            "grade": 2,
+            "min": 29.5
+          },
+          {
+            "grade": 3,
+            "min": 25.0
+          },
+          {
+            "grade": 4,
+            "min": 18.0
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ],
+        "sprint50m": [
+          {
+            "grade": 1,
+            "max": 8.8
+          },
+          {
+            "grade": 2,
+            "max": 9.5
+          },
+          {
+            "grade": 3,
+            "max": 10.5
+          },
+          {
+            "grade": 4,
+            "max": 12.2
+          },
+          {
+            "grade": 5,
+            "max": 13.51
+          }
+        ],
+        "jump": [
+          {
+            "grade": 1,
+            "min": 186.1
+          },
+          {
+            "grade": 2,
+            "min": 159.1
+          },
+          {
+            "grade": 3,
+            "min": 139.1
+          },
+          {
+            "grade": 4,
+            "min": 100.1
+          },
+          {
+            "grade": 5,
+            "min": 0
+          }
+        ]
+      }
+    }
+  },
+  "bmiCriteria": {
+    "male": {
+      "초4": {
+        "thinMax": 14.2,
+        "normalMax": 20.7,
+        "overMax": 23.2,
+        "obeseMax": 29.9
+      },
+      "초5": {
+        "thinMax": 14.5,
+        "normalMax": 21.6,
+        "overMax": 24.4,
+        "obeseMax": 29.9
+      },
+      "초6": {
+        "thinMax": 14.8,
+        "normalMax": 22.5,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "중1": {
+        "thinMax": 15.3,
+        "normalMax": 23.2,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "중2": {
+        "thinMax": 15.7,
+        "normalMax": 23.8,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "중3": {
+        "thinMax": 16.2,
+        "normalMax": 24.3,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "고1": {
+        "thinMax": 16.7,
+        "normalMax": 24.6,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "고2": {
+        "thinMax": 17.2,
+        "normalMax": 24.9,
+        "overMax": 29.9,
+        "obeseMax": 29.9
+      },
+      "고3": {
+        "thinMax": 17.7,
+        "normalMax": 24.9,
+        "overMax": 29.9,
+        "obeseMax": 29.9
+      }
+    },
+    "female": {
+      "초4": {
+        "thinMax": 13.9,
+        "normalMax": 19.8,
+        "overMax": 22.0,
+        "obeseMax": 29.9
+      },
+      "초5": {
+        "thinMax": 14.2,
+        "normalMax": 20.6,
+        "overMax": 23.0,
+        "obeseMax": 29.9
+      },
+      "초6": {
+        "thinMax": 14.6,
+        "normalMax": 21.4,
+        "overMax": 23.9,
+        "obeseMax": 29.9
+      },
+      "중1": {
+        "thinMax": 15.1,
+        "normalMax": 22.1,
+        "overMax": 24.7,
+        "obeseMax": 29.9
+      },
+      "중2": {
+        "thinMax": 15.6,
+        "normalMax": 22.7,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "중3": {
+        "thinMax": 16.2,
+        "normalMax": 23.2,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "고1": {
+        "thinMax": 16.7,
+        "normalMax": 23.6,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "고2": {
+        "thinMax": 17.2,
+        "normalMax": 23.8,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      },
+      "고3": {
+        "thinMax": 17.6,
+        "normalMax": 23.9,
+        "overMax": 24.9,
+        "obeseMax": 29.9
+      }
+    }
+  },
+  "metricType": {
+    "shuttleRun": "higher",
+    "runWalk": "lower",
+    "stepTest": "higher",
+    "sitAndReach": "higher",
+    "flexScore": "higher",
+    "pushUp": "higher",
+    "kneePushUp": "higher",
+    "sitUp": "higher",
+    "grip": "higher",
+    "sprint50m": "lower",
+    "jump": "higher",
+    "bmi": "bmi"
+  },
+  "units": {
+    "heightCm": "cm",
+    "weightKg": "kg",
+    "bmi": "kg/m2",
+    "shuttleRun": "회",
+    "runWalk": "초",
+    "stepTest": "PEI",
+    "sitAndReach": "cm",
+    "flexScore": "점수",
+    "pushUp": "회",
+    "kneePushUp": "회",
+    "sitUp": "회",
+    "grip": "kg",
+    "sprint50m": "초",
+    "jump": "cm"
+  },
+  "metricGroups": {
+    "cardio": [
+      "shuttleRun",
+      "runWalk",
+      "stepTest"
+    ],
+    "flexibility": [
+      "sitAndReach",
+      "flexScore"
+    ],
+    "strength": [
+      "pushUp",
+      "kneePushUp",
+      "sitUp",
+      "grip"
+    ],
+    "power_speed": [
+      "sprint50m",
+      "jump"
+    ],
+    "bodyComposition": [
+      "bmi"
+    ]
+  }
+}

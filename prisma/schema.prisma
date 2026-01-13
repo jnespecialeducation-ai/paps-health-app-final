@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 로컬 개발: SQLite 사용 (DATABASE_URL이 file:로 시작하면 SQLite)
+// 프로덕션: DATABASE_URL이 postgresql://로 시작하면 PostgreSQL 자동 감지
+datasource db {
+  provider = "sqlite"  // DATABASE_URL 형식에 따라 자동으로 PostgreSQL로 전환됨
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id        String   @id @default(uuid())
+  grade     String   // 초4, 초5, 초6, 중1, 중2, 중3, 고1, 고2, 고3
+  sex       String   // male | female
+  nickname  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions MeasurementSession[]
+}
+
+model MeasurementSession {
+  id               String   @id @default(uuid())
+  studentId        String
+  student          Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  measuredAt       DateTime @default(now())
+  heightCm         Float
+  weightKg         Float
+  bmi              Float
+  metricsJson      String   // JSON string of measurement values
+  resultJson       String   // JSON string of grades and summary
+  aiRecommendation String?  // AI-generated recommendation (optional)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([studentId])
+  @@index([measuredAt])
+}
