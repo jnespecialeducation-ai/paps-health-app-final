@@ -8,12 +8,13 @@ const createSessionSchema = z.object({
   heightCm: z.number().positive(),
   weightKg: z.number().positive(),
   metrics: z.record(z.string(), z.number()),
+  measuredAt: z.string().datetime().optional(), // 측정 날짜 (선택사항, 없으면 현재 시간 사용)
 });
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { studentId, heightCm, weightKg, metrics } = createSessionSchema.parse(body);
+    const { studentId, heightCm, weightKg, metrics, measuredAt } = createSessionSchema.parse(body);
 
     // 학생 정보 조회
     const student = await prisma.student.findUnique({
@@ -42,6 +43,7 @@ export async function POST(request: NextRequest) {
         bmi: summary.grades.find((g) => g.metric === 'bmi')?.value || 0,
         metricsJson: JSON.stringify(metrics),
         resultJson: JSON.stringify(summary),
+        measuredAt: measuredAt ? new Date(measuredAt) : new Date(), // 사용자가 선택한 날짜 또는 현재 시간
       },
     });
 

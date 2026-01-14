@@ -5,10 +5,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// 로컬 개발: SQLite 사용 (DATABASE_URL이 file:로 시작하면 SQLite)
-// 프로덕션: DATABASE_URL이 postgresql://로 시작하면 PostgreSQL 자동 감지
+// 로컬 개발: SQLite 사용 (DATABASE_URL="file:./prisma/dev.db")
+// 프로덕션: PostgreSQL 사용 (DATABASE_URL="postgresql://...")
+// 스키마는 scripts/prepare-schema.js에 의해 자동으로 DATABASE_URL에 맞게 수정됩니다.
 datasource db {
-  provider = "postgresql"  // DATABASE_URL 형식에 따라 자동으로 PostgreSQL로 전환됨
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 

@@ -164,6 +164,7 @@ export default function MeasurePage() {
   const [formData, setFormData] = useState<{
     heightCm: string;
     weightKg: string;
+    measuredAt: string;
     [key: string]: {
       selectedMetric: string;
       measurementValue: string;
@@ -171,6 +172,7 @@ export default function MeasurePage() {
   }>({
     heightCm: '',
     weightKg: '',
+    measuredAt: new Date().toISOString().split('T')[0], // 오늘 날짜를 기본값으로 설정
   });
   const [scores, setScores] = useState<Record<string, number | null>>({});
   const [grades, setGrades] = useState<Record<string, number | null>>({});
@@ -192,6 +194,7 @@ export default function MeasurePage() {
       const initialFormData: any = {
         heightCm: '',
         weightKg: '',
+        measuredAt: new Date().toISOString().split('T')[0], // 오늘 날짜를 기본값으로 설정
       };
       Object.keys(fitnessCategories).forEach((category) => {
         const categoryData = fitnessCategories[category as keyof typeof fitnessCategories];
@@ -324,6 +327,14 @@ export default function MeasurePage() {
         }
       });
 
+      // 측정 날짜 처리
+      const measuredAt = formData.measuredAt as string;
+      if (!measuredAt) {
+        alert('측정 날짜를 선택해주세요.');
+        setSubmitting(false);
+        return;
+      }
+
       const res = await fetch('/api/sessions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -332,6 +343,7 @@ export default function MeasurePage() {
           heightCm,
           weightKg,
           metrics,
+          measuredAt: new Date(measuredAt).toISOString(),
         }),
       });
 
@@ -362,6 +374,20 @@ export default function MeasurePage() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* 측정 날짜 */}
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-2">
+              측정 날짜 *
+            </label>
+            <input
+              type="date"
+              value={formData.measuredAt as string}
+              onChange={(e) => setFormData({ ...formData, measuredAt: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+              required
+            />
+          </div>
+
           {/* 키와 몸무게 */}
           <div className="grid grid-cols-2 gap-4">
             <div>

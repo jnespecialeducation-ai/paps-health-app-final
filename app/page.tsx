@@ -23,10 +23,20 @@ export default function Home() {
   const fetchStudents = async () => {
     try {
       const res = await fetch('/api/students');
+      if (!res.ok) {
+        throw new Error('학생 목록 조회 실패');
+      }
       const data = await res.json();
-      setStudents(data);
+      // 응답이 배열인지 확인
+      if (Array.isArray(data)) {
+        setStudents(data);
+      } else {
+        console.error('예상치 못한 응답 형식:', data);
+        setStudents([]);
+      }
     } catch (error) {
       console.error('학생 목록 조회 실패:', error);
+      setStudents([]);
     } finally {
       setLoading(false);
     }

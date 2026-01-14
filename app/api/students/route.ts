@@ -46,7 +46,17 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: '학생을 찾을 수 없습니다.' }, { status: 404 });
       }
 
-      return NextResponse.json(student);
+      // sessions의 JSON 문자열을 파싱
+      const studentWithParsedSessions = {
+        ...student,
+        sessions: student.sessions.map((session) => ({
+          ...session,
+          metrics: session.metricsJson ? JSON.parse(session.metricsJson) : {},
+          result: session.resultJson ? JSON.parse(session.resultJson) : null,
+        })),
+      };
+
+      return NextResponse.json(studentWithParsedSessions);
     }
 
     const students = await prisma.student.findMany({

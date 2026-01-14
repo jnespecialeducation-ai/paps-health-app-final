@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "prisma generate && prisma migrate deploy && next build",
+    "dev": "node scripts/prepare-schema.js && node scripts/clean-prisma.js && node scripts/clean-next.js && prisma generate && next dev",
+    "build": "node scripts/prepare-schema.js && node scripts/clean-prisma.js && prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "postinstall": "prisma generate"
+    "postinstall": "node scripts/prepare-schema.js && node scripts/clean-prisma.js && prisma generate",
+    "db:push": "node scripts/prepare-schema.js && node scripts/clean-prisma.js && prisma generate && prisma db push",
+    "db:migrate": "node scripts/prepare-schema.js && node scripts/clean-prisma.js && prisma generate && prisma migrate dev",
+    "clean:prisma": "node scripts/clean-prisma.js",
+    "clean:next": "node scripts/clean-next.js",
+    "clean": "node scripts/clean-prisma.js && node scripts/clean-next.js"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",

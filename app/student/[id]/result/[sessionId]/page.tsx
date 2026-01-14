@@ -131,6 +131,11 @@ export default function ResultPage() {
       }
       const latestSession = await latestSessionRes.json();
 
+      // result.grades가 배열인지 확인
+      const grades = Array.isArray(latestSession.result?.grades)
+        ? latestSession.result.grades.map((g: any) => ({ metric: g.metric, grade: g.grade }))
+        : [];
+
       const res = await fetch('/api/ai/recommend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -138,7 +143,7 @@ export default function ResultPage() {
           sessionId: session.id,
           grade: latestSession.student.grade,
           sex: latestSession.student.sex as 'male' | 'female',
-          grades: latestSession.result.grades.map((g: any) => ({ metric: g.metric, grade: g.grade })),
+          grades: grades,
           weakAreas: latestSession.result.weakAreas || [],
           strongAreas: latestSession.result.strongAreas || [],
           bmiCategory: latestSession.result.bmiCategory,
