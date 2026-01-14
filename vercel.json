@@ -1,4 +1,9 @@
 {
   "buildCommand": "node scripts/prepare-schema.js && prisma generate && prisma migrate deploy && next build",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["icn1"],
+  "env": {
+    "PRISMA_GENERATE_DATAPROXY": "false"
+  }
 }
