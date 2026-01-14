@@ -520,7 +520,7 @@ export default function ResultPage() {
           <RadarChart data={radarData}>
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" />
-            <PolarRadiusAxis angle={90} domain={[0, 5]} ticks={[0, 1, 2, 3, 4, 5]} />
+            <PolarRadiusAxis angle={90} domain={[0, 5]} />
             <Radar
               name="체력 점수"
               dataKey="value"
