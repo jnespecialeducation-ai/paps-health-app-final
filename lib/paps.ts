@@ -69,7 +69,8 @@ export function calculateGrade(
   metricName: string,
   value: number
 ): Grade {
-  const criteria = papsCriteria.criteria[sex]?.[grade]?.[metricName];
+  const gradeCriteria = papsCriteria.criteria[sex]?.[grade];
+  const criteria = gradeCriteria ? (gradeCriteria as Record<string, any>)[metricName] : undefined;
   if (!criteria) {
     return 5; // 기본값: 최하 등급
   }
