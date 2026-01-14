@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const schemaPath = path.join(__dirname, '..', 'prisma', 'schema.prisma');
+const migrationLockPath = path.join(__dirname, '..', 'prisma', 'migrations', 'migration_lock.toml');
 const schemaContent = fs.readFileSync(schemaPath, 'utf-8');
 
 // DATABASE_URL 확인
@@ -60,6 +61,16 @@ if (datasourceRegex.test(schemaContent)) {
 }
 
 fs.writeFileSync(schemaPath, updatedContent, 'utf-8');
+
+// migration_lock.toml도 업데이트
+if (fs.existsSync(migrationLockPath)) {
+  const lockContent = fs.readFileSync(migrationLockPath, 'utf-8');
+  const updatedLockContent = lockContent.replace(
+    /provider\s*=\s*["']?[^"'\s]+["']?/,
+    `provider = "${provider}"`
+  );
+  fs.writeFileSync(migrationLockPath, updatedLockContent, 'utf-8');
+}
 
 console.log(`✅ Prisma 스키마가 ${provider}로 설정되었습니다.`);
 console.log(`   DATABASE_URL: ${databaseUrl.substring(0, 20)}...`);
