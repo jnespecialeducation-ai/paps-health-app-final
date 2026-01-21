@@ -2,7 +2,7 @@
 
 import { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVolumeHigh, faVolumeX } from '@fortawesome/free-solid-svg-icons';
+import { faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 import { ClickContext } from './ClickProvider';
 import { Button } from '../ui/Button';
 
@@ -42,7 +42,7 @@ export function SoundToggle() {
       suppressHydrationWarning
     >
       <FontAwesomeIcon 
-        icon={soundEnabled ? faVolumeHigh : faVolumeX} 
+        icon={soundEnabled ? faVolumeHigh : faVolumeXmark} 
         className="h-4 w-4"
       />
       <span className="text-xs">Sound {soundEnabled ? 'ON' : 'OFF'}</span>
