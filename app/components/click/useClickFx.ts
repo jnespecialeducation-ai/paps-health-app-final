@@ -15,7 +15,10 @@ export function useClickFx() {
 
   // 클릭 이벤트 핸들러 생성
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLElement>, originalOnClick?: (e: React.MouseEvent<HTMLElement>) => void) => {
+    <T extends HTMLElement>(
+      e: React.MouseEvent<T>,
+      originalOnClick?: (e: React.MouseEvent<T>) => void
+    ) => {
       // 리플 이펙트 생성 (원래 onClick 전에)
       const target = e.currentTarget;
       const rect = target.getBoundingClientRect();
