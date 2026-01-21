@@ -536,7 +536,7 @@ export default function ResultPage() {
             <PolarRadiusAxis
               angle={90}
               domain={[0, 5]}
-              ticks={[0, 1, 2, 3, 4, 5].map((v) => ({ value: v }))}
+              tickCount={6}
               allowDecimals={false}
             />
             <Radar
