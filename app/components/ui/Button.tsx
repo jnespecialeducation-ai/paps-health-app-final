@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import type { ComponentPropsWithoutRef, PropsWithChildren, MouseEvent } from 'react';
 import { useClickFx } from '../click/useClickFx';
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger';
+
+type MotionButtonProps = ComponentPropsWithoutRef<typeof motion.button>;
 
 export function Button({
   children,
@@ -13,8 +15,9 @@ export function Button({
   onClick,
   ...props
 }: PropsWithChildren<
-  ButtonHTMLAttributes<HTMLButtonElement> & {
+  Omit<MotionButtonProps, 'onClick'> & {
     variant?: Variant;
+    onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   }
 >) {
   const { handleClick } = useClickFx();
