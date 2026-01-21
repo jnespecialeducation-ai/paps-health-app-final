@@ -17,7 +17,11 @@
     "clean": "node scripts/clean-prisma.js && node scripts/clean-next.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^5.22.0",
+    "framer-motion": "^12.27.5",
     "next": "^14.2.18",
     "openai": "^4.52.7",
     "react": "^18.3.1",

@@ -1,7 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { FadeIn } from '@/app/components/motion/FadeIn';
+import { Card } from '@/app/components/ui/Card';
+import { Button } from '@/app/components/ui/Button';
 import {
   RadarChart,
   Radar,
@@ -95,11 +98,7 @@ export default function ResultPage() {
     metrics: Record<string, string>;
   } | null>(null);
 
-  useEffect(() => {
-    fetchSession();
-  }, [sessionId]);
-
-  const fetchSession = async () => {
+  const fetchSession = useCallback(async () => {
     try {
       const res = await fetch(`/api/sessions?id=${sessionId}`);
       if (!res.ok) {
@@ -117,7 +116,11 @@ export default function ResultPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [sessionId]);
+
+  useEffect(() => {
+    fetchSession();
+  }, [fetchSession]);
 
   const handleGenerateAIRecommendation = async () => {
     if (!session || !session.student) return;
@@ -255,8 +258,13 @@ export default function ResultPage() {
       for (const [key, value] of Object.entries(editFormData.metrics)) {
         if (value.trim()) {
           const numValue = parseFloat(value);
-          if (!isNaN(numValue) && numValue > 0) {
-            metrics[key] = numValue;
+          if (!isNaN(numValue)) {
+            // sitAndReach는 0/음수도 기록 가능
+            if (key === 'sitAndReach') {
+              metrics[key] = numValue;
+            } else if (numValue > 0) {
+              metrics[key] = numValue;
+            }
           }
         }
       }
@@ -293,7 +301,7 @@ export default function ResultPage() {
   };
 
   if (loading || !session) {
-    return <div className="text-center py-8 text-gray-500">로딩 중...</div>;
+    return <div className="text-center py-10 text-fg-muted">로딩 중...</div>;
   }
 
   // 체력 요소별 등급 계산 (점수를 등급으로 변환: 5점=1등급, 1점=5등급)
@@ -369,77 +377,82 @@ export default function ResultPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <FadeIn>
+        <div className="mb-2">
+          <h2 className="text-3xl font-extrabold text-gradient">측정 결과</h2>
+          <p className="text-sm text-fg-muted mt-2">
+            측정일: {new Date(session.measuredAt).toLocaleDateString('ko-KR')}
+          </p>
+        </div>
+      </FadeIn>
+
+      <Card className="p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-semibold text-gray-900">측정 결과</h2>
           <div className="flex gap-2">
             {!isEditing ? (
               <>
-                <button
+                <Button
                   onClick={() => router.push(`/student/${studentId}`)}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                  variant="secondary"
                 >
                   ← 목록으로
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleStartEdit}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  variant="primary"
                 >
                   수정
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleDeleteSession}
                   disabled={deleting}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
+                  variant="danger"
                 >
                   {deleting ? '삭제 중...' : '측정 삭제'}
-                </button>
+                </Button>
               </>
             ) : (
               <>
-                <button
+                <Button
                   onClick={handleCancelEdit}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                  variant="secondary"
                 >
                   취소
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleSaveEdit}
                   disabled={editing}
-                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                  className="bg-gradient-to-r from-emerald-500 via-green-600 to-cyan-500 shadow-neon"
                 >
                   {editing ? '저장 중...' : '저장'}
-                </button>
+                </Button>
               </>
             )}
           </div>
         </div>
-        <p className="text-sm text-gray-600">
-          측정일: {new Date(session.measuredAt).toLocaleDateString('ko-KR')}
-        </p>
-      </div>
+      </Card>
 
       {/* 항목별 등급 카드 */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">항목별 등급</h3>
+      <Card className="p-6">
+        <h3 className="text-xl font-bold text-fg mb-4">항목별 등급</h3>
         {!isEditing ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {session.result.grades.map((grade) => (
               <div
                 key={grade.metric}
-                className="p-4 border border-gray-200 rounded-lg"
+                className="surface surface-hover p-4"
               >
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-medium text-gray-900">
+                  <span className="font-semibold text-fg">
                     {metricLabels[grade.metric] || grade.metric}
                   </span>
                   <span
-                    className={`px-2 py-1 rounded text-white text-sm ${gradeColors[grade.grade]}`}
+                    className={`px-2 py-1 rounded-lg text-white text-sm ${gradeColors[grade.grade]}`}
                   >
                     {grade.grade}등급 ({gradeLabels[grade.grade]})
                   </span>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-fg-muted">
                   측정값: {grade.value} {grade.metric === 'bmi' ? '' : grade.metric === 'sprint50m' ? '초' : grade.metric === 'jump' ? 'cm' : grade.metric === 'grip' ? 'kg' : grade.metric === 'sitAndReach' ? 'cm' : '회'}
                 </p>
               </div>
@@ -450,7 +463,7 @@ export default function ResultPage() {
             {/* 키와 몸무게 수정 */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-fg mb-2">
                   키 (cm) *
                 </label>
                 <input
@@ -458,12 +471,12 @@ export default function ResultPage() {
                   step="0.1"
                   value={editFormData?.heightCm || ''}
                   onChange={(e) => setEditFormData((prev) => prev ? { ...prev, heightCm: e.target.value } : null)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-fg bg-white dark:bg-black/20"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-fg mb-2">
                   몸무게 (kg) *
                 </label>
                 <input
@@ -471,7 +484,7 @@ export default function ResultPage() {
                   step="0.1"
                   value={editFormData?.weightKg || ''}
                   onChange={(e) => setEditFormData((prev) => prev ? { ...prev, weightKg: e.target.value } : null)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-fg bg-white dark:bg-black/20"
                   required
                 />
               </div>
@@ -489,7 +502,7 @@ export default function ResultPage() {
                     : '회';
                   return (
                     <div key={grade.metric} className="p-4 border border-gray-200 rounded-lg">
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block text-sm font-medium text-fg mb-2">
                         {metricLabels[grade.metric] || grade.metric}
                       </label>
                       <input
@@ -503,7 +516,7 @@ export default function ResultPage() {
                           } : null
                         )}
                         placeholder={`측정값 입력 (${unit})`}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-fg bg-white dark:bg-black/20"
                       />
                     </div>
                   );
@@ -511,16 +524,16 @@ export default function ResultPage() {
             </div>
           </div>
         )}
-      </div>
+      </Card>
 
       {/* 레이더 차트 */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">체력 요소 분석</h3>
+      <Card className="p-6">
+        <h3 className="text-xl font-bold text-fg mb-4">체력 요소 분석</h3>
         <ResponsiveContainer width="100%" height={400}>
           <RadarChart data={radarData}>
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" />
-            <PolarRadiusAxis angle={90} domain={[0, 5]} />
+            <PolarRadiusAxis angle={90} domain={[0, 5]} ticks={[0, 1, 2, 3, 4, 5]} allowDecimals={false} />
             <Radar
               name="체력 점수"
               dataKey="value"
@@ -536,30 +549,30 @@ export default function ResultPage() {
           {radarData.map((item) => (
             <div
               key={item.subject}
-              className="p-4 border border-gray-200 rounded-lg text-center"
+              className="surface surface-hover p-4 text-center"
             >
-              <div className="text-sm font-medium text-gray-700 mb-2">
+              <div className="text-sm font-semibold text-fg mb-2">
                 {item.subject}
               </div>
               <div className={`inline-block px-3 py-1 rounded text-white text-sm font-semibold ${gradeColors[item.grade]}`}>
                 {item.grade}등급 ({gradeLabels[item.grade]})
               </div>
-              <div className="text-xs text-gray-500 mt-1">
+              <div className="text-xs text-fg-subtle mt-1">
                 측정 결과: {item.measurement}
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* 추천 섹션 */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">맞춤 추천</h3>
+      <Card className="p-6">
+        <h3 className="text-xl font-bold text-fg mb-4">맞춤 추천</h3>
 
         {/* 기본 추천 */}
-        <div className="mb-6 p-4 bg-blue-50 rounded-lg">
-          <h4 className="font-medium text-gray-900 mb-2">📌 기본 추천</h4>
-          <div className="text-sm text-gray-700 space-y-2">
+        <div className="mb-6 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
+          <h4 className="font-semibold text-fg mb-2">📌 기본 추천</h4>
+          <div className="text-sm text-fg-muted space-y-2">
             {session.result.weakAreas.length > 0 && (
               <p>
                 <strong>개선 필요 항목:</strong>{' '}
@@ -586,8 +599,8 @@ export default function ResultPage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="font-medium text-gray-900">🤖 AI 맞춤 추천</h4>
-              <p className="text-xs text-gray-500 mt-1">
+              <h4 className="font-semibold text-fg">🤖 AI 맞춤 추천</h4>
+              <p className="text-xs text-fg-subtle mt-1">
                 AI가 측정 결과를 분석하여 맞춤 운동 추천을 제공합니다. (개인정보는 전송되지 않습니다)
               </p>
             </div>
@@ -603,31 +616,31 @@ export default function ResultPage() {
                 }}
                 className="rounded"
               />
-              <span className="text-sm text-gray-700">AI 추천 사용</span>
+              <span className="text-sm text-fg-muted">AI 추천 사용</span>
             </label>
           </div>
 
           {showAiRecommendation && (
             <div>
               {aiRecommendation ? (
-                <div className="p-4 bg-green-50 rounded-lg">
-                  <div className="whitespace-pre-line text-sm text-gray-700">
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
+                  <div className="whitespace-pre-line text-sm text-fg-muted">
                     {aiRecommendation}
                   </div>
                 </div>
               ) : (
-                <button
+                <Button
                   onClick={handleGenerateAIRecommendation}
                   disabled={aiLoading}
-                  className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                  className="w-full py-3 bg-gradient-to-r from-emerald-500 via-green-600 to-cyan-500 shadow-neon"
                 >
                   {aiLoading ? 'AI 추천 생성 중...' : 'AI 추천 생성하기'}
-                </button>
+                </Button>
               )}
             </div>
           )}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

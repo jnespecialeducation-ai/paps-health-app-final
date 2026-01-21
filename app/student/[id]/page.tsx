@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -13,6 +13,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { Card } from '@/app/components/ui/Card';
+import { Button } from '@/app/components/ui/Button';
 
 interface Student {
   id: string;
@@ -37,11 +39,7 @@ export default function StudentPage() {
   });
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    fetchStudent();
-  }, [studentId]);
-
-  const fetchStudent = async () => {
+  const fetchStudent = useCallback(async () => {
     try {
       const res = await fetch(`/api/students?id=${studentId}`);
       if (!res.ok) {
@@ -67,7 +65,11 @@ export default function StudentPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [studentId]);
+
+  useEffect(() => {
+    fetchStudent();
+  }, [fetchStudent]);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -148,7 +150,10 @@ export default function StudentPage() {
 
     return sortedSessions.map((session) => {
       const date = new Date(session.measuredAt);
-      const dateLabel = `${date.getMonth() + 1}/${date.getDate()}`;
+      const yyyy = date.getFullYear();
+      const mm = String(date.getMonth() + 1).padStart(2, '0');
+      const dd = String(date.getDate()).padStart(2, '0');
+      const dateLabel = `${yyyy}/${mm}/${dd}`;
       
       const metrics = session.metrics || {};
       const result = session.result || {};
@@ -252,27 +257,27 @@ export default function StudentPage() {
   }, [student?.sessions]);
 
   if (loading) {
-    return <div className="text-center py-8 text-gray-500">로딩 중...</div>;
+    return <div className="text-center py-8 text-fg-muted">로딩 중...</div>;
   }
 
   if (!student) {
-    return <div className="text-center py-8 text-gray-500">학생을 찾을 수 없습니다.</div>;
+    return <div className="text-center py-8 text-fg-muted">학생을 찾을 수 없습니다.</div>;
   }
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <Card className="p-6">
         <div className="flex justify-between items-center mb-4">
           {isEditing ? (
             <div className="flex-1 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-fg mb-2">
                   학년
                 </label>
                 <select
                   value={editFormData.grade}
                   onChange={(e) => setEditFormData({ ...editFormData, grade: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                  className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-cyan-400/70 focus:border-cyan-400/50"
                 >
                   <option value="초4">초등학교 4학년</option>
                   <option value="초5">초등학교 5학년</option>
@@ -286,11 +291,11 @@ export default function StudentPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-fg mb-2">
                   성별
                 </label>
                 <div className="flex gap-4">
-                  <label className="flex items-center text-gray-900">
+                  <label className="flex items-center text-fg">
                     <input
                       type="radio"
                       value="male"
@@ -300,7 +305,7 @@ export default function StudentPage() {
                     />
                     남학생
                   </label>
-                  <label className="flex items-center text-gray-900">
+                  <label className="flex items-center text-fg">
                     <input
                       type="radio"
                       value="female"
@@ -313,107 +318,101 @@ export default function StudentPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-fg mb-2">
                   별칭 (선택사항)
                 </label>
                 <input
                   type="text"
                   value={editFormData.nickname}
                   onChange={(e) => setEditFormData({ ...editFormData, nickname: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                  className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-cyan-400/70 focus:border-cyan-400/50"
                   placeholder="예: 홍길동"
                 />
               </div>
               <div className="flex gap-2">
-                <button
+                <Button
                   onClick={handleSaveEdit}
                   disabled={saving}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
                 >
                   {saving ? '저장 중...' : '저장'}
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleCancelEdit}
                   disabled={saving}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                  variant="secondary"
                 >
                   취소
-                </button>
+                </Button>
               </div>
             </div>
           ) : (
             <div>
-              <h2 className="text-2xl font-semibold text-gray-900">
+              <h2 className="text-2xl font-bold text-fg">
                 {student.nickname || '이름 없음'}
               </h2>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-fg-muted mt-1">
                 {student.grade} {student.sex === 'male' ? '남학생' : '여학생'}
               </p>
             </div>
           )}
           <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              ← 목록으로
+            <Link href="/">
+              <Button variant="secondary">← 목록으로</Button>
             </Link>
             {!isEditing && (
-              <button
+              <Button
                 onClick={handleEditClick}
-                className="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors"
+                variant="secondary"
               >
                 수정
-              </button>
+              </Button>
             )}
-            <Link
-              href={`/student/${studentId}/measure`}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              + 새 측정 입력
+            <Link href={`/student/${studentId}/measure`}>
+              <Button>+ 새 측정 입력</Button>
             </Link>
           </div>
         </div>
-      </div>
+      </Card>
 
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">측정 이력</h3>
+      <Card className="p-6">
+        <h3 className="text-xl font-bold text-fg mb-4">측정 이력</h3>
         {!student.sessions || student.sessions.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-fg-muted">
             측정 이력이 없습니다. 새 측정을 입력해주세요.
           </div>
         ) : (
           <div className="space-y-6">
             {/* 측정 기록 목록 */}
             <div>
-              <h4 className="text-lg font-medium text-gray-800 mb-3">측정 기록 목록</h4>
+              <h4 className="text-lg font-medium text-fg mb-3">측정 기록 목록</h4>
               <div className="space-y-4">
                 {student.sessions.map((session) => (
                   <div
                     key={session.id}
-                    className="flex items-center gap-2 p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+                    className="surface surface-hover p-4 flex items-center gap-2"
                   >
                     <Link
                       href={`/student/${studentId}/result/${session.id}`}
                       className="flex-1 flex justify-between items-center"
                     >
                       <div>
-                        <p className="font-medium text-gray-900">
+                        <p className="font-semibold text-fg">
                           {new Date(session.measuredAt).toLocaleDateString('ko-KR')}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-fg-muted">
                           키: {session.heightCm}cm, 몸무게: {session.weightKg}kg, BMI: {session.bmi.toFixed(1)}
                         </p>
                       </div>
-                      <span className="text-blue-600">→</span>
+                      <span className="text-cyan-300/90 font-semibold">→</span>
                     </Link>
-                    <button
+                    <Button
                       onClick={(e) => handleDeleteSession(session.id, e)}
-                      className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition-colors"
+                      variant="danger"
+                      className="px-3 py-1 text-xs"
                       title="측정 기록 삭제"
                     >
                       측정 삭제
-                    </button>
+                    </Button>
                   </div>
                 ))}
               </div>
@@ -424,22 +423,38 @@ export default function StudentPage() {
               <div className="space-y-6 border-t pt-6">
                 {/* 신체 지표 변화 차트 */}
                 <div>
-                  <h4 className="text-lg font-medium text-gray-800 mb-3">신체 지표 변화</h4>
+                  <h4 className="text-lg font-medium text-fg mb-3">신체 지표 변화</h4>
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={chartData}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis 
                         dataKey="date" 
                         tick={{ fontSize: 12 }}
+                        label={{ value: '날짜(년/월/일)', position: 'insideBottom', offset: -5 }}
                       />
-                      <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
-                      <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+                      <YAxis
+                        yAxisId="height"
+                        tick={{ fontSize: 12 }}
+                        label={{ value: '키(cm)', angle: -90, position: 'insideLeft' }}
+                      />
+                      <YAxis
+                        yAxisId="weight"
+                        orientation="right"
+                        tick={{ fontSize: 12 }}
+                        label={{ value: '몸무게(kg)', angle: -90, position: 'insideRight' }}
+                      />
                       <Tooltip 
-                        contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+                          backdropFilter: 'blur(12px)',
+                          border: '1px solid rgba(255, 255, 255, 0.1)', 
+                          borderRadius: '12px',
+                          color: '#fff'
+                        }}
                       />
                       <Legend />
                       <Line 
-                        yAxisId="left"
+                        yAxisId="height"
                         type="monotone" 
                         dataKey="heightCm" 
                         stroke="#3b82f6" 
@@ -448,21 +463,12 @@ export default function StudentPage() {
                         dot={{ r: 4 }}
                       />
                       <Line 
-                        yAxisId="left"
+                        yAxisId="weight"
                         type="monotone" 
                         dataKey="weightKg" 
                         stroke="#10b981" 
                         strokeWidth={2}
                         name="몸무게 (kg)"
-                        dot={{ r: 4 }}
-                      />
-                      <Line 
-                        yAxisId="right"
-                        type="monotone" 
-                        dataKey="bmi" 
-                        stroke="#f59e0b" 
-                        strokeWidth={2}
-                        name="BMI"
                         dot={{ r: 4 }}
                       />
                     </LineChart>
@@ -472,7 +478,7 @@ export default function StudentPage() {
                 {/* 등급 변화 차트 */}
                 {gradeChartData.length > 0 && Object.keys(gradeChartData[0]).filter(k => k !== 'date').length > 0 && (
                   <div>
-                    <h4 className="text-lg font-medium text-gray-800 mb-3">항목별 등급 변화</h4>
+                    <h4 className="text-lg font-medium text-fg mb-3">항목별 등급 변화</h4>
                     <ResponsiveContainer width="100%" height={300}>
                       <LineChart data={gradeChartData}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -482,11 +488,20 @@ export default function StudentPage() {
                         />
                         <YAxis 
                           domain={[1, 5]}
+                          reversed={true}
                           tick={{ fontSize: 12 }}
+                          ticks={[5, 4, 3, 2, 1]}
+                          allowDecimals={false}
                           label={{ value: '등급', angle: -90, position: 'insideLeft' }}
                         />
                         <Tooltip 
-                          contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+                          contentStyle={{ 
+                            backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+                            backdropFilter: 'blur(12px)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)', 
+                            borderRadius: '12px',
+                            color: '#fff'
+                          }}
                           formatter={(value: number) => `${value}등급`}
                         />
                         <Legend />
@@ -508,7 +523,7 @@ export default function StudentPage() {
                           })}
                       </LineChart>
                     </ResponsiveContainer>
-                    <p className="text-xs text-gray-500 mt-2">
+                    <p className="text-xs text-fg-muted mt-2">
                       * 1등급(우수) ~ 5등급(매우미흡)
                     </p>
                   </div>
@@ -517,7 +532,7 @@ export default function StudentPage() {
                 {/* 측정값 변화 차트 */}
                 {valueChartData.length > 0 && Object.keys(valueChartData[0]).filter(k => k !== 'date').length > 0 && (
                   <div>
-                    <h4 className="text-lg font-medium text-gray-800 mb-3">항목별 측정값 변화</h4>
+                    <h4 className="text-lg font-medium text-fg mb-3">항목별 측정값 변화</h4>
                     <ResponsiveContainer width="100%" height={300}>
                       <LineChart data={valueChartData}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -527,7 +542,13 @@ export default function StudentPage() {
                         />
                         <YAxis tick={{ fontSize: 12 }} />
                         <Tooltip 
-                          contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+                          contentStyle={{ 
+                            backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+                            backdropFilter: 'blur(12px)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)', 
+                            borderRadius: '12px',
+                            color: '#fff'
+                          }}
                         />
                         <Legend />
                         {Object.keys(valueChartData[0] || {})
@@ -554,7 +575,7 @@ export default function StudentPage() {
             )}
           </div>
         )}
-      </div>
+      </Card>
     </div>
   );
 }

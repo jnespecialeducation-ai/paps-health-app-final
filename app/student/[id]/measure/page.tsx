@@ -1,8 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { calculateGrade, calculateBMI, classifyBMI, calculateBMIGrade } from '@/lib/paps';
+import { FadeIn } from '@/app/components/motion/FadeIn';
+import { Card } from '@/app/components/ui/Card';
+import { Button } from '@/app/components/ui/Button';
 
 interface Student {
   id: string;
@@ -60,10 +63,13 @@ interface CategorySectionProps {
     [key: string]: {
       selectedMetric: string;
       measurementValue: string;
+      gripLeftValue?: string;
+      gripRightValue?: string;
     } | string;
   };
   onMetricChange: (category: string, metric: string) => void;
   onValueChange: (category: string, value: string) => void;
+  onGripValueChange: (category: string, hand: 'left' | 'right', value: string) => void;
   scores: Record<string, number | null>;
   grades: Record<string, number | null>;
 }
@@ -74,17 +80,22 @@ function CategorySection({
   formData,
   onMetricChange,
   onValueChange,
+  onGripValueChange,
   scores,
   grades,
 }: CategorySectionProps) {
   const categoryData = fitnessCategories[category];
-  const categoryFormData = formData[category] as { selectedMetric: string; measurementValue: string } | undefined;
-  const actualFormData = categoryFormData || { selectedMetric: categoryData.metrics[0].value, measurementValue: '' };
+  const categoryFormData = formData[category] as
+    | { selectedMetric: string; measurementValue: string; gripLeftValue?: string; gripRightValue?: string }
+    | undefined;
+  const actualFormData =
+    categoryFormData || { selectedMetric: categoryData.metrics[0].value, measurementValue: '', gripLeftValue: '', gripRightValue: '' };
   const score = scores[category] ?? null;
   const grade = grades[category] ?? null;
 
   // BMI 자동 계산 (비만 카테고리이고 체질량지수가 선택된 경우)
   const isBMI = category === 'obesity' && actualFormData.selectedMetric === 'bmi';
+  const isGrip = actualFormData.selectedMetric === 'grip';
   const heightCm = parseFloat(formData.heightCm as string);
   const weightKg = parseFloat(formData.weightKg as string);
   const calculatedBMI = isBMI && !isNaN(heightCm) && !isNaN(weightKg) && heightCm > 0 && weightKg > 0
@@ -93,18 +104,18 @@ function CategorySection({
 
   return (
     <div className="border-t pt-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">{categoryData.label}</h3>
+      <h3 className="text-lg font-semibold text-fg mb-4">{categoryData.label}</h3>
       
       <div className="space-y-4">
         {/* 평가종목 선택 */}
         <div>
-          <label className="block text-sm font-medium text-gray-900 mb-2">
+          <label className="block text-sm font-medium text-fg mb-2">
             평가종목 선택
           </label>
           <select
             value={actualFormData.selectedMetric}
             onChange={(e) => onMetricChange(category, e.target.value)}
-            className="w-full px-3 py-2 border-2 border-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900"
+            className="w-full px-3 py-2 border-2 border-gray-900 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-black/20 text-fg"
           >
             {categoryData.metrics.map((metric) => (
               <option key={metric.value} value={metric.value}>
@@ -116,14 +127,42 @@ function CategorySection({
 
         {/* 측정 기록 입력 */}
         <div>
-          <label className="block text-sm font-medium text-gray-900 mb-2">
+          <label className="block text-sm font-medium text-fg mb-2">
             측정 기록 입력
           </label>
           {isBMI ? (
-            <div className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-900">
+            <div className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg bg-gray-50 dark:bg-black/20 text-fg">
               {calculatedBMI !== null 
                 ? `자동 계산: ${calculatedBMI.toFixed(1)} (체중 ${weightKg}kg ÷ 키 ${(heightCm / 100).toFixed(2)}m²)`
                 : '키와 몸무게를 입력하면 자동으로 계산됩니다'}
+            </div>
+          ) : isGrip ? (
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-medium text-fg-muted mb-1">왼손 (kg)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={actualFormData.gripLeftValue || ''}
+                  onChange={(e) => onGripValueChange(category, 'left', e.target.value)}
+                  placeholder="왼손 악력"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 dark:placeholder-white/40 text-fg bg-white dark:bg-black/20"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-fg-muted mb-1">오른손 (kg)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={actualFormData.gripRightValue || ''}
+                  onChange={(e) => onGripValueChange(category, 'right', e.target.value)}
+                  placeholder="오른손 악력"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 dark:placeholder-white/40 text-fg bg-white dark:bg-black/20"
+                />
+              </div>
+              <p className="col-span-2 text-xs text-fg-muted">
+                저장/평가에는 두 손 악력의 평균이 사용됩니다.
+              </p>
             </div>
           ) : (
             <input
@@ -132,18 +171,18 @@ function CategorySection({
               value={actualFormData.measurementValue}
               onChange={(e) => onValueChange(category, e.target.value)}
               placeholder="측정 기록 입력"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 text-gray-900 bg-white"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 dark:placeholder-white/40 text-fg bg-white dark:bg-black/20"
             />
           )}
         </div>
 
         {/* 점수 및 등급 표시 */}
-        <div className="bg-gray-100 rounded-lg p-4">
+        <div className="bg-surface-muted rounded-lg p-4 border border-border">
           <div className="flex justify-between items-center">
-            <div className="text-sm font-medium text-gray-900">
+            <div className="text-sm font-medium text-fg">
               점수: {score !== null ? `${score}점` : '-'}
             </div>
-            <div className="text-sm font-medium text-gray-900">
+            <div className="text-sm font-medium text-fg">
               등급: {grade !== null ? `${grade}등급` : '-'}
             </div>
           </div>
@@ -168,6 +207,8 @@ export default function MeasurePage() {
     [key: string]: {
       selectedMetric: string;
       measurementValue: string;
+      gripLeftValue?: string;
+      gripRightValue?: string;
     } | string;
   }>({
     heightCm: '',
@@ -177,11 +218,7 @@ export default function MeasurePage() {
   const [scores, setScores] = useState<Record<string, number | null>>({});
   const [grades, setGrades] = useState<Record<string, number | null>>({});
 
-  useEffect(() => {
-    fetchStudent();
-  }, [studentId]);
-
-  const fetchStudent = async () => {
+  const fetchStudent = useCallback(async () => {
     try {
       const res = await fetch(`/api/students?id=${studentId}`);
       if (!res.ok) {
@@ -201,6 +238,8 @@ export default function MeasurePage() {
         initialFormData[category] = {
           selectedMetric: categoryData.metrics[0].value,
           measurementValue: '',
+          gripLeftValue: '',
+          gripRightValue: '',
         };
       });
       setFormData(initialFormData);
@@ -210,7 +249,11 @@ export default function MeasurePage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [studentId]);
+
+  useEffect(() => {
+    fetchStudent();
+  }, [fetchStudent]);
 
   // 측정값 입력 시 점수와 등급 계산
   useEffect(() => {
@@ -220,7 +263,9 @@ export default function MeasurePage() {
     const newGrades: Record<string, number | null> = {};
 
     Object.keys(fitnessCategories).forEach((category) => {
-      const categoryFormData = formData[category] as { selectedMetric: string; measurementValue: string } | undefined;
+      const categoryFormData = formData[category] as
+        | { selectedMetric: string; measurementValue: string; gripLeftValue?: string; gripRightValue?: string }
+        | undefined;
       if (!categoryFormData) return;
 
       const { selectedMetric, measurementValue } = categoryFormData;
@@ -239,9 +284,22 @@ export default function MeasurePage() {
           newScores[category] = null;
           newGrades[category] = null;
         }
+      } else if (selectedMetric === 'grip') {
+        const left = parseFloat(categoryFormData.gripLeftValue || '');
+        const right = parseFloat(categoryFormData.gripRightValue || '');
+        if (!isNaN(left) && !isNaN(right) && left > 0 && right > 0) {
+          const avg = (left + right) / 2;
+          const calculatedGrade = calculateGrade(student.grade as any, student.sex, 'grip', avg);
+          newGrades[category] = calculatedGrade;
+          newScores[category] = 6 - calculatedGrade;
+        } else {
+          newScores[category] = null;
+          newGrades[category] = null;
+        }
       } else if (measurementValue) {
         const value = parseFloat(measurementValue);
-        if (!isNaN(value) && value > 0) {
+        const isSitAndReach = selectedMetric === 'sitAndReach';
+        if (!isNaN(value) && (isSitAndReach || value > 0)) {
           const calculatedGrade = calculateGrade(
             student.grade as any,
             student.sex,
@@ -271,6 +329,8 @@ export default function MeasurePage() {
         ...(prev[category] as any || {}),
         selectedMetric: metric,
         measurementValue: '',
+        gripLeftValue: '',
+        gripRightValue: '',
       },
     }));
   };
@@ -281,6 +341,16 @@ export default function MeasurePage() {
       [category]: {
         ...(prev[category] as any || {}),
         measurementValue: value,
+      },
+    }));
+  };
+
+  const handleGripValueChange = (category: string, hand: 'left' | 'right', value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [category]: {
+        ...(prev[category] as any || {}),
+        [hand === 'left' ? 'gripLeftValue' : 'gripRightValue']: value,
       },
     }));
   };
@@ -310,7 +380,9 @@ export default function MeasurePage() {
       const metrics: Record<string, number> = {};
 
       Object.keys(fitnessCategories).forEach((category) => {
-        const categoryFormData = formData[category] as { selectedMetric: string; measurementValue: string } | undefined;
+        const categoryFormData = formData[category] as
+          | { selectedMetric: string; measurementValue: string; gripLeftValue?: string; gripRightValue?: string }
+          | undefined;
         if (!categoryFormData) return;
 
         const { selectedMetric, measurementValue } = categoryFormData;
@@ -319,9 +391,16 @@ export default function MeasurePage() {
           // BMI는 자동 계산
           const bmi = calculateBMI(heightCm, weightKg);
           metrics.bmi = bmi;
+        } else if (selectedMetric === 'grip') {
+          const left = parseFloat(categoryFormData.gripLeftValue || '');
+          const right = parseFloat(categoryFormData.gripRightValue || '');
+          if (!isNaN(left) && !isNaN(right) && left > 0 && right > 0) {
+            metrics.grip = Number(((left + right) / 2).toFixed(1));
+          }
         } else if (measurementValue) {
           const value = parseFloat(measurementValue);
-          if (!isNaN(value) && value > 0) {
+          const isSitAndReach = selectedMetric === 'sitAndReach';
+          if (!isNaN(value) && (isSitAndReach || value > 0)) {
             metrics[selectedMetric] = value;
           }
         }
@@ -362,28 +441,32 @@ export default function MeasurePage() {
   };
 
   if (loading || !student) {
-    return <div className="text-center py-8 text-gray-500">로딩 중...</div>;
+    return <div className="text-center py-10 text-fg-muted">로딩 중...</div>;
   }
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">측정 입력</h2>
-        <p className="text-sm text-gray-600 mb-6">
-          {student.nickname || '학생'} ({student.grade} {student.sex === 'male' ? '남' : '여'})
-        </p>
+      <FadeIn>
+        <div className="mb-6">
+          <h2 className="text-3xl font-extrabold text-gradient">측정 입력</h2>
+          <p className="text-sm text-fg-muted mt-2">
+            {student.nickname || '학생'} · {student.grade} · {student.sex === 'male' ? '남' : '여'}
+          </p>
+        </div>
+      </FadeIn>
 
+      <Card className="p-6 sm:p-7">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* 측정 날짜 */}
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">
+            <label className="block text-sm font-medium text-fg mb-2">
               측정 날짜 *
             </label>
             <input
               type="date"
               value={formData.measuredAt as string}
               onChange={(e) => setFormData({ ...formData, measuredAt: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+              className="w-full px-3 py-2 rounded-xl border border-white/10 dark:border-white/10 bg-white/50 dark:bg-black/20 text-fg focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-300/60"
               required
             />
           </div>
@@ -391,7 +474,7 @@ export default function MeasurePage() {
           {/* 키와 몸무게 */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
+              <label className="block text-sm font-medium text-fg mb-2">
                 키 (cm) *
               </label>
               <input
@@ -399,12 +482,12 @@ export default function MeasurePage() {
                 step="0.1"
                 value={formData.heightCm as string}
                 onChange={(e) => setFormData({ ...formData, heightCm: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 dark:border-white/10 bg-white/50 dark:bg-black/20 text-fg focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-300/60"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
+              <label className="block text-sm font-medium text-fg mb-2">
                 몸무게 (kg) *
               </label>
               <input
@@ -412,7 +495,7 @@ export default function MeasurePage() {
                 step="0.1"
                 value={formData.weightKg as string}
                 onChange={(e) => setFormData({ ...formData, weightKg: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 dark:border-white/10 bg-white/50 dark:bg-black/20 text-fg focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-300/60"
                 required
               />
             </div>
@@ -427,6 +510,7 @@ export default function MeasurePage() {
               formData={formData as any}
               onMetricChange={handleMetricChange}
               onValueChange={handleValueChange}
+              onGripValueChange={handleGripValueChange}
               scores={scores}
               grades={grades}
             />
@@ -434,23 +518,24 @@ export default function MeasurePage() {
 
           {/* 버튼 */}
           <div className="flex gap-4 pt-4">
-            <button
+            <Button
               type="submit"
               disabled={submitting}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+              className="flex-1 py-3"
             >
               {submitting ? '저장 중...' : '저장하기'}
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={() => router.back()}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+              variant="secondary"
+              className="px-5 py-3"
             >
               취소
-            </button>
+            </Button>
           </div>
         </form>
-      </div>
+      </Card>
     </div>
   );
 }

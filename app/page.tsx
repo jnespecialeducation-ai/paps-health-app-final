@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { FadeIn } from '@/app/components/motion/FadeIn';
+import { Stagger, StaggerItem } from '@/app/components/motion/Stagger';
+import { Card } from '@/app/components/ui/Card';
+import { Button } from '@/app/components/ui/Button';
 
 interface Student {
   id: string;
@@ -75,58 +79,66 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">학생 목록</h2>
-          <Link
-            href="/student/new"
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            + 새 학생 등록
+    <div className="space-y-8">
+      <FadeIn>
+        <div className="space-y-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gradient">
+            학생 건강체력, 한 번에 관리
+          </h2>
+          <p className="text-sm sm:text-base text-fg-muted">
+            PAPS 기준 자동 등급 산출과 AI 추천으로 더 똑똑하게 코칭해요.
+          </p>
+        </div>
+      </FadeIn>
+
+      <Card className="p-6 sm:p-7">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+          <div>
+            <h3 className="text-lg font-bold text-fg">학생 목록</h3>
+            <p className="text-xs text-fg-muted mt-1">학생을 선택해 측정 입력/결과를 확인하세요.</p>
+          </div>
+          <Link href="/student/new">
+            <Button className="w-full sm:w-auto">+ 새 학생 등록</Button>
           </Link>
         </div>
 
         {loading ? (
-          <div className="text-center py-8 text-gray-500">로딩 중...</div>
+          <div className="text-center py-10 text-fg-muted">로딩 중...</div>
         ) : students.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-10 text-fg-muted">
             등록된 학생이 없습니다. 새 학생을 등록해주세요.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {students.map((student) => (
-              <div
-                key={student.id}
-                className="flex items-center gap-2 p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
-              >
-                <Link
-                  href={`/student/${student.id}`}
-                  className="flex-1 flex items-center justify-between"
-                >
-                  <div>
-                    <h3 className="font-medium text-gray-900">
-                      {student.nickname || '이름 없음'}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {student.grade} {student.sex === 'male' ? '남' : '여'}
-                    </p>
-                  </div>
-                  <span className="text-blue-600">→</span>
-                </Link>
-                <button
-                  onClick={(e) => handleDeleteStudent(student.id, e)}
-                  disabled={deletingIds.has(student.id)}
-                  className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition-colors disabled:opacity-50"
-                  title="학생 삭제"
-                >
-                  {deletingIds.has(student.id) ? '삭제 중...' : '삭제'}
-                </button>
-              </div>
+              <StaggerItem key={student.id}>
+                <div className="surface surface-hover p-4 flex items-center gap-3">
+                  <Link href={`/student/${student.id}`} className="flex-1 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-fg">
+                        {student.nickname || '이름 없음'}
+                      </h4>
+                      <p className="text-sm text-fg-muted">
+                        {student.grade} {student.sex === 'male' ? '남' : '여'}
+                      </p>
+                    </div>
+                    <span className="text-cyan-300/90 font-semibold">→</span>
+                  </Link>
+                  <Button
+                    variant="danger"
+                    onClick={(e) => handleDeleteStudent(student.id, e)}
+                    disabled={deletingIds.has(student.id)}
+                    className="px-3 py-2 text-xs"
+                    title="학생 삭제"
+                  >
+                    {deletingIds.has(student.id) ? '삭제 중...' : '삭제'}
+                  </Button>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         )}
-      </div>
+      </Card>
     </div>
   );
 }
